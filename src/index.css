@@ -81,6 +81,10 @@
   .feature-icon {
     @apply text-netflix-red mb-4 h-10 w-10;
   }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(229,9,20,0.7);
+  }
 }
 
 @layer utilities {
@@ -94,6 +98,14 @@
   
   .animate-slide-in {
     animation: slide-in 0.5s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out;
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
   }
   
   .glass-effect {
@@ -129,6 +141,26 @@
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
   }
 }
 

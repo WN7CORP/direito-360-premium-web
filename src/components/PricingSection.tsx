@@ -1,7 +1,7 @@
 
 import { getAppStoreLink } from '@/utils/deviceDetection';
 import { Button } from '@/components/ui/button';
-import { Download, Check } from 'lucide-react';
+import { Download, Check, Sparkles, Medal } from 'lucide-react';
 
 const PricingSection = () => {
   const handleGetAppClick = () => {
@@ -13,12 +13,27 @@ const PricingSection = () => {
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1587831990711-23ca6441447b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGxhdyUyMGJvb2tzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1500&q=80')] bg-cover bg-center opacity-20"></div>
       <div className="bg-gradient-to-b from-netflix-dark to-black py-16 relative z-10">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Apenas <span className="text-netflix-red">R$49,99</span>
-          </h2>
-          <p className="text-xl mb-6">Pagamento único. Sem mensalidades. Acesso vitalício.</p>
+          <div className="inline-block mb-10 relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-netflix-red to-netflix-lightRed rounded-lg blur-md"></div>
+            <div className="relative bg-netflix-dark px-8 py-4 rounded-lg border border-netflix-red/30">
+              <h2 className="text-3xl md:text-5xl font-bold flex items-center justify-center">
+                <Medal className="h-8 w-8 mr-3 text-netflix-red animate-bounce-subtle" />
+                Apenas <span className="text-netflix-red ml-2 text-glow">R$49,99</span>
+              </h2>
+              <div className="mt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <span className="px-3 py-1 bg-netflix-red/80 rounded-full text-sm font-bold">PAGAMENTO ÚNICO</span>
+                <span className="px-3 py-1 bg-netflix-gray rounded-full text-sm">Sem mensalidades</span>
+                <span className="px-3 py-1 bg-netflix-gray rounded-full text-sm">Acesso vitalício</span>
+              </div>
+            </div>
+          </div>
           
           <div className="bg-netflix-gray rounded-lg p-6 md:p-8 max-w-md mx-auto mb-8 transform hover:scale-105 transition-transform duration-300 border border-netflix-red/30 shadow-[0_0_30px_rgba(229,9,20,0.2)]">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-netflix-red text-white px-4 py-1 rounded-full text-sm font-bold flex items-center">
+              <Sparkles className="h-4 w-4 mr-1 animate-pulse-slow" />
+              OFERTA EXCLUSIVA
+            </div>
+            
             <h3 className="text-2xl font-bold mb-6">O que você recebe:</h3>
             <ul className="text-left space-y-3 mb-6">
               {[
@@ -40,11 +55,18 @@ const PricingSection = () => {
             </ul>
             
             <div className="relative group">
-              <Button onClick={handleGetAppClick} className="cta-button w-full group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-netflix-red to-netflix-lightRed rounded-md blur opacity-30 group-hover:opacity-100 transition duration-300"></div>
+              <Button onClick={handleGetAppClick} className="cta-button w-full group relative">
                 <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" /> 
                 Baixar Agora
               </Button>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-netflix-red to-netflix-lightRed rounded-md blur opacity-30 group-hover:opacity-100 transition duration-300"></div>
+            </div>
+            
+            <div className="mt-4 p-3 bg-netflix-darkGray rounded-md border border-netflix-gray animate-pulse-slow">
+              <p className="text-sm text-netflix-lightGray">
+                <strong className="text-white">Estudantes online agora:</strong> 
+                <span className="ml-1 text-netflix-red font-bold">28+</span> pessoas
+              </p>
             </div>
           </div>
           

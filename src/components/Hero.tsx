@@ -1,7 +1,7 @@
 
 import { getAppStoreLink } from '@/utils/deviceDetection';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Award } from 'lucide-react';
+import { ArrowRight, Award, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   const handleGetAppClick = () => {
@@ -15,15 +15,29 @@ const Hero = () => {
         <div className="hero-gradient absolute inset-0"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-20">
           <div className="mb-2 flex items-center">
-            <Award className="text-netflix-red mr-2 h-6 w-6" />
+            <Award className="text-netflix-red mr-2 h-6 w-6 animate-bounce-subtle" />
             <span className="text-sm md:text-base font-medium text-netflix-lightRed">ACESSO ILIMITADO</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in">
             Direito <span className="text-netflix-red">360</span> Premium
           </h1>
-          <p className="text-xl md:text-2xl mb-6 max-w-2xl">
-            Sua formação jurídica completa por apenas <span className="text-netflix-red font-bold text-2xl md:text-3xl animate-pulse-slow">R$49,99</span> <span className="text-netflix-lightGray">(pagamento único)</span>
-          </p>
+          
+          <div className="relative my-5 animate-scale-in">
+            <div className="absolute -inset-1 bg-gradient-to-r from-netflix-red to-netflix-lightRed rounded-lg blur-md opacity-75"></div>
+            <div className="relative bg-netflix-dark/90 rounded-lg border border-netflix-red p-4 flex flex-col items-center">
+              <div className="flex items-center mb-1">
+                <Sparkles className="text-netflix-red h-5 w-5 mr-2 animate-pulse-slow" />
+                <span className="text-sm uppercase font-bold text-netflix-lightRed">Oferta Especial</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-3xl md:text-4xl font-bold text-white animate-pulse-slow">R$49,99</span>
+                <span className="ml-3 px-3 py-1 bg-netflix-red text-white text-xs font-bold rounded-full">
+                  PAGAMENTO ÚNICO
+                </span>
+              </div>
+              <p className="text-sm text-netflix-lightGray mt-1">Acesso vitalício a todo conteúdo</p>
+            </div>
+          </div>
           
           <div className="mb-8 flex flex-col md:flex-row items-center gap-4 p-4 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg border border-netflix-gray">
             <p>Clique em "Baixar Agora" para acessar a loja do seu dispositivo</p>

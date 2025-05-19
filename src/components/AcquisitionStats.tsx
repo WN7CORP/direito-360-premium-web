@@ -1,12 +1,21 @@
 
 import { useEffect, useState } from 'react';
-import { Users, TrendingUp } from 'lucide-react';
+import { Users, TrendingUp, CheckCircle } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Card, CardContent } from '@/components/ui/card';
+
+// List of fictional names for people acquiring the app
+const recentPurchasers = [
+  "Maria S.", "João P.", "Luiza M.", "Carlos A.", "Ana B.", 
+  "Pedro H.", "Julia C.", "Rafael D.", "Fernanda L.", "Bruno G.",
+  "Thiago R.", "Mariana S.", "Lucas T.", "Isabela V.", "Daniel W.",
+  "Amanda X.", "Felipe Y.", "Gabriela Z.", "Rodrigo A.", "Camila B."
+];
 
 const AcquisitionStats = () => {
   const [currentUsers, setCurrentUsers] = useState(0);
   const [totalUsers, setTotalUsers] = useState(0);
+  const [recentBuyer, setRecentBuyer] = useState("");
   
   useEffect(() => {
     // Starting values
@@ -19,6 +28,15 @@ const AcquisitionStats = () => {
       if (Math.random() > 0.7) {
         setTotalUsers(prev => prev + 1);
         setCurrentUsers(prev => Math.min(prev + 1, 35));
+        
+        // Show a new purchaser
+        const randomName = recentPurchasers[Math.floor(Math.random() * recentPurchasers.length)];
+        setRecentBuyer(randomName);
+        
+        // Clear the recent buyer after 3 seconds
+        setTimeout(() => {
+          setRecentBuyer("");
+        }, 3000);
       } else {
         // Fluctuate current users between 20-35
         setCurrentUsers(prev => {
@@ -34,6 +52,13 @@ const AcquisitionStats = () => {
   return (
     <div className="py-6 bg-netflix-darkGray bg-opacity-50">
       <div className="container mx-auto px-4">
+        {recentBuyer && (
+          <div className="mb-4 p-3 bg-netflix-gray border border-netflix-red rounded-md flex items-center animate-slide-in">
+            <CheckCircle className="text-netflix-red h-5 w-5 mr-3" />
+            <span className="text-sm">{recentBuyer} acabou de adquirir <span className="font-bold">Direito 360 Premium</span></span>
+          </div>
+        )}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card className="bg-netflix-gray border-netflix-darkGray hover:shadow-[0_0_15px_rgba(229,9,20,0.3)] transition-all duration-300">
             <CardContent className="p-4 md:p-6">
