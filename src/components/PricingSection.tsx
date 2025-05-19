@@ -4,7 +4,7 @@ import { Download, Check, Sparkles, Medal } from 'lucide-react';
 
 const PricingSection = () => {
   const handleGetAppClick = () => {
-    window.location.href = getAppStoreLink();
+    window.open(getAppStoreLink(), "_blank");
   };
   
   return (

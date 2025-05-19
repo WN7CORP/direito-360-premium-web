@@ -1,3 +1,4 @@
+
 import { getAppStoreLink } from '@/utils/deviceDetection';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Sparkles } from 'lucide-react';
@@ -5,7 +6,7 @@ import AudioPlayer from './AudioPlayer';
 
 const Hero = () => {
   const handleGetAppClick = () => {
-    window.location.href = getAppStoreLink();
+    window.open(getAppStoreLink(), "_blank");
   };
   
   return <div className="relative w-full">
