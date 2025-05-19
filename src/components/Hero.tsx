@@ -1,20 +1,9 @@
 
-import { useEffect } from 'react';
-import { getDeviceType, getAppStoreLink } from '@/utils/deviceDetection';
+import { getAppStoreLink } from '@/utils/deviceDetection';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Award } from 'lucide-react';
 
 const Hero = () => {
-  useEffect(() => {
-    // Auto-redirect based on device type
-    const deviceType = getDeviceType();
-    if (deviceType === 'iOS' || deviceType === 'Android') {
-      setTimeout(() => {
-        window.location.href = getAppStoreLink();
-      }, 3000); // Redirect after 3 seconds
-    }
-  }, []);
-
   const handleGetAppClick = () => {
     window.location.href = getAppStoreLink();
   };
@@ -37,13 +26,7 @@ const Hero = () => {
           </p>
           
           <div className="mb-8 flex flex-col md:flex-row items-center gap-4 p-4 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg border border-netflix-gray">
-            <div className="flex items-center">
-              <div className="flex h-2.5 w-2.5 relative mr-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-netflix-red opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-netflix-lightRed"></span>
-              </div>
-              <p>Redirecionando para a loja do seu dispositivo...</p>
-            </div>
+            <p>Clique em "Baixar Agora" para acessar a loja do seu dispositivo</p>
           </div>
           
           <Button onClick={handleGetAppClick} className="cta-button group relative overflow-hidden">
