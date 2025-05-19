@@ -5,6 +5,8 @@ import FeatureSection from '@/components/FeatureSection';
 import AdditionalFeatures from '@/components/AdditionalFeatures';
 import PricingSection from '@/components/PricingSection';
 import Footer from '@/components/Footer';
+import AcquisitionStats from '@/components/AcquisitionStats';
+import TargetAudience from '@/components/TargetAudience';
 import { getDeviceType, getAppStoreLink } from '@/utils/deviceDetection';
 
 const Index = () => {
@@ -24,7 +26,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-netflix-dark text-white">
-      <div className="sticky top-0 z-50 bg-netflix-dark/90 backdrop-blur-sm px-4 py-3 flex items-center justify-between">
+      <div className="sticky top-0 z-50 bg-netflix-dark/90 backdrop-blur-sm px-4 py-3 flex items-center justify-between border-b border-netflix-gray">
         <h1 className="text-xl font-bold text-netflix-red">Direito 360 Premium</h1>
         <button 
           onClick={() => window.location.href = getAppStoreLink()} 
@@ -36,7 +38,9 @@ const Index = () => {
       
       <main>
         <Hero />
+        <AcquisitionStats />
         <FeatureSection />
+        <TargetAudience />
         <AdditionalFeatures />
         <PricingSection />
       </main>

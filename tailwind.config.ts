@@ -97,21 +97,44 @@ export default {
 				},
         'pulse-slow': {
           '0%, 100%': {
-            opacity: 1
+            opacity: '1'
           },
           '50%': {
-            opacity: 0.8
+            opacity: '0.8'
+          }
+        },
+        'fade-in': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(10px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)'
+          }
+        },
+        'bounce-subtle': {
+          '0%, 100%': {
+            transform: 'translateY(0)'
+          },
+          '50%': {
+            transform: 'translateY(-5px)'
           }
         }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-        'pulse-slow': 'pulse-slow 3s ease-in-out infinite'
+        'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+        'fade-in': 'fade-in 0.6s ease-out',
+        'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite'
 			},
       fontFamily: {
         'sans': ['Netflix Sans', 'Helvetica Neue', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
       },
+      boxShadow: {
+        'glow': '0 0 8px rgba(229, 9, 20, 0.6)',
+      }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
