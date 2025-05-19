@@ -1,4 +1,3 @@
-
 import { getAppStoreLink } from '@/utils/deviceDetection';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Sparkles } from 'lucide-react';

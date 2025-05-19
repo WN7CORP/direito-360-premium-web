@@ -1,4 +1,3 @@
-
 import { getAppStoreLink } from '@/utils/deviceDetection';
 import { Button } from '@/components/ui/button';
 import { Download, Check, Sparkles, Medal } from 'lucide-react';
