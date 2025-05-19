@@ -1,12 +1,47 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from 'react';
+import Hero from '@/components/Hero';
+import FeatureSection from '@/components/FeatureSection';
+import AdditionalFeatures from '@/components/AdditionalFeatures';
+import PricingSection from '@/components/PricingSection';
+import Footer from '@/components/Footer';
+import { getDeviceType, getAppStoreLink } from '@/utils/deviceDetection';
 
 const Index = () => {
+  useEffect(() => {
+    // Check if user is on mobile and redirect if needed
+    const deviceType = getDeviceType();
+    
+    if (deviceType === 'iOS' || deviceType === 'Android') {
+      // Set a timeout to allow the user to see some content before redirecting
+      const timer = setTimeout(() => {
+        window.location.href = getAppStoreLink();
+      }, 3000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-netflix-dark text-white">
+      <div className="sticky top-0 z-50 bg-netflix-dark/90 backdrop-blur-sm px-4 py-3 flex items-center justify-between">
+        <h1 className="text-xl font-bold text-netflix-red">Direito 360 Premium</h1>
+        <button 
+          onClick={() => window.location.href = getAppStoreLink()} 
+          className="bg-netflix-red px-4 py-1 rounded-sm text-sm font-bold hover:bg-netflix-lightRed transition-colors"
+        >
+          Baixar App
+        </button>
       </div>
+      
+      <main>
+        <Hero />
+        <FeatureSection />
+        <AdditionalFeatures />
+        <PricingSection />
+      </main>
+      
+      <Footer />
     </div>
   );
 };
