@@ -1,15 +1,11 @@
-
 import { getAppStoreLink } from '@/utils/deviceDetection';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Sparkles } from 'lucide-react';
-
 const Hero = () => {
   const handleGetAppClick = () => {
     window.location.href = getAppStoreLink();
   };
-  
-  return (
-    <div className="relative w-full">
+  return <div className="relative w-full">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-netflix-dark z-10"></div>
       <div className="bg-[url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center h-[80vh] relative">
         <div className="hero-gradient absolute inset-0"></div>
@@ -39,9 +35,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="mb-8 flex flex-col md:flex-row items-center gap-4 p-4 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg border border-netflix-gray">
-            <p>Clique em "Baixar Agora" para acessar a loja do seu dispositivo</p>
-          </div>
+          
           
           <Button onClick={handleGetAppClick} className="cta-button group relative overflow-hidden">
             <span className="relative z-10 flex items-center">
@@ -52,8 +46,6 @@ const Hero = () => {
           </Button>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Hero;
