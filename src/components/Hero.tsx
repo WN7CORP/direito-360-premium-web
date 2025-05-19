@@ -1,10 +1,14 @@
+
 import { getAppStoreLink } from '@/utils/deviceDetection';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Sparkles } from 'lucide-react';
+import AudioPlayer from './AudioPlayer';
+
 const Hero = () => {
   const handleGetAppClick = () => {
     window.location.href = getAppStoreLink();
   };
+  
   return <div className="relative w-full">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-netflix-dark z-10"></div>
       <div className="bg-[url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center h-[80vh] relative">
@@ -35,17 +39,25 @@ const Hero = () => {
             </div>
           </div>
           
+          <div className="w-full max-w-md animate-fade-in">
+            <AudioPlayer 
+              audioUrl="https://www.dropbox.com/scl/fi/cat1panj27p7jwm7efdat/Direito-360-Premium_-Oferta-Vital-cia-online-audio-converter.com.mp3?rlkey=39g03f8hn2rmrsvpsp2nba0eq&st=a90j14rw&dl=1" 
+              caption="▶️ Ouça esta mensagem especial sobre o Direito 360 Premium"
+            />
+          </div>
           
-          
-          <Button onClick={handleGetAppClick} className="cta-button group relative overflow-hidden">
-            <span className="relative z-10 flex items-center">
-              Baixar Agora 
-              <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-netflix-red to-netflix-lightRed transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-          </Button>
+          <div className="mt-6 animate-bounce-subtle">
+            <Button onClick={handleGetAppClick} className="cta-button group relative overflow-hidden">
+              <span className="relative z-10 flex items-center">
+                Baixar Agora 
+                <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-netflix-red to-netflix-lightRed transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+            </Button>
+          </div>
         </div>
       </div>
     </div>;
 };
+
 export default Hero;

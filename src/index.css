@@ -85,6 +85,14 @@
   .text-glow {
     text-shadow: 0 0 10px rgba(229,9,20,0.7);
   }
+  
+  .audio-player-button {
+    @apply flex items-center justify-center bg-netflix-red hover:bg-netflix-lightRed text-white rounded-full transition-all duration-300 transform hover:scale-110;
+  }
+  
+  .highlight-box {
+    @apply border-2 border-netflix-red bg-netflix-darkGray/50 rounded-lg p-4 animate-pulse-slow;
+  }
 }
 
 @layer utilities {
@@ -110,6 +118,18 @@
   
   .glass-effect {
     @apply backdrop-blur-md bg-black/30 border border-white/10;
+  }
+  
+  .animate-progress {
+    animation: progress-fill 2s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-highlight {
+    animation: highlight 2s ease-in-out infinite;
   }
 }
 
@@ -161,6 +181,33 @@
   }
   50% {
     transform: translateY(-5px);
+  }
+}
+
+@keyframes progress-fill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes highlight {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(229,9,20,0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(229,9,20,0.8);
   }
 }
 
